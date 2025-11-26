@@ -1,0 +1,38 @@
+[
+   {
+    "id": "1",
+    "name": "Карась",
+    "latin_name": "Carassius carassius",
+    "is_salt_water_fish": false,
+    "sub_type_count": "3"
+},
+{
+    "id": "2",
+    "name": "Окунь",
+    "latin_name": "Perca fluviatilis",
+    "is_salt_water_fish": false,
+    "sub_type_count": "4"
+},
+{
+    "id": "3",
+    "name": "Тунец",
+    "latin_name": "Thunnus thynnus",
+    "is_salt_water_fish": true,
+    "sub_type_count": "7"
+},
+{
+    "id": "4",
+    "name": "Сом",
+    "latin_name": "Silurus glanis",
+    "is_salt_water_fish": false,
+    "sub_type_count": "2"
+},
+{
+    "id": "5",
+    "name": "Лосось",
+    "latin_name": "Salmo salar",
+    "is_salt_water_fish": true,
+    "sub_type_count": "5"
+}
+
+]
