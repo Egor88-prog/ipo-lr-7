@@ -3,12 +3,12 @@ import json
 print("code start")
 
 def print_all_lens():
-     import json
-     with open('data.json', 'r', encoding='utf-8') as file:
-            data = json.load(file)
-            for line in data:
-                print(f"{line["id"]}. {line["name"]}({line["latin_name"]}), пресноводная({line["is_salt_water_fish"]}),количество видов= {line["sub_type_count"]}")
-            print("")
+    import json
+    with open('data.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+        for line in data:
+            print(f"{line["id"]}. {line["name"]}({line["latin_name"]}), пресноводная({line["is_salt_water_fish"]}),количество видов= {line["sub_type_count"]}")
+        print("")
 
 def print_len():
     import json
@@ -30,9 +30,27 @@ def add_len():
     with open('data.json', 'r', encoding='utf-8') as file:
         data_f = json.load(file)
         data={}
-        data["id"]=str(input("Введите id: "))
-        data["name"]=str(input("Введите название рыбы "))
-        data["latin_name"]=str(input("Введите латинское (научное) название рыбы "))
+        while True:
+            id_in=str(input("Введите id: "))
+            if id_in.isdigit():
+                data["id"]=id_in
+                break
+            else:
+                print("Ошибка ввода")
+        while True:
+            name=str(input("Введите название рыбы "))
+            if name.isalpha():
+                data["name"]=name
+                break
+            else:
+                print("Ошибка ввода")
+        while True:
+            l_name=str(input("Введите латинское (научное) название рыбы "))
+            if l_name.isalpha():
+                data["latin_name"]=l_name
+                break
+            else:
+                print("Ошибка ввода")
         while True:
             match str(input("Рыба пресноводная да/нет ")):
                 case "да":
@@ -43,7 +61,13 @@ def add_len():
                     break
                 case _:
                     print("Повторите попытку")
-        data["sub_type_count"]=str(input("Введите количество подвидов рыбы "))
+        while True:
+            num=str(input("Введите количество подвидов рыбы "))
+            if num.isdigit():
+                data["sub_type_count"]=num
+                break
+            else:
+                print("Ошибка ввода")
         data_f.append(data)
         with open("data.json", "w", encoding="utf-8") as file:
             json.dump(data_f, file, ensure_ascii=False, indent=4)
