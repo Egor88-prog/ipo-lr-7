@@ -1,6 +1,12 @@
 from collision import isCorrectRect
 from collision import isCollisionRect
 from collision import intersectionAreaRect
-dots1=[(1,1),(3,3)]
-dots2=[(2,2),(4,4)]
-print(intersectionAreaRect(dots1,dots2))
+from collision import intersectionAreaMultiRect
+rectangles=[
+    [(-3, 1), (9, 10)],
+    [(-7, 0), (3, 12)],
+    [(0, 0), (5, 5)],
+    [(2, 2), (7, 7)]
+]
+
+print(intersectionAreaMultiRect(rectangles))

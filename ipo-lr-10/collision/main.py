@@ -40,5 +40,36 @@ def intersectionAreaRect(dots1,dots2):
         width = overlap_x2 - overlap_x1
         height = overlap_y2 - overlap_y1
         return width * height
+def intersectionAreaMultiRect(rectangles):
+    """Площадь пересечения всех прямоугольников из списка."""
+    if not rectangles:
+        return 0
+
+    first = rectangles[0]
+
+    if not isCorrectRect(first):
+        raise RectCorrectError(f"Некорректный прямоугольник: {first}")
+
+    x_left, y_bottom = first[0]
+    x_right, y_top = first[1]
+
+    for rect in rectangles[1:]:
+        if not isCorrectRect(rect):
+            raise RectCorrectError(f"Некорректный прямоугольник: {rect}")
+
+        x1, y1 = rect[0]; x2, y2 = rect[1]
+
+        # Сужаем область пересечения
+        x_left = max(x_left, x1)
+        y_bottom = max(y_bottom, y1)
+        x_right = min(x_right, x2)
+        y_top = min(y_top, y2)
+
+        # Если пересечения нет — можно сразу вернуть 0
+        if x_left >= x_right or y_bottom >= y_top:
+            return 0
+
+    return (x_right - x_left) * (y_top - y_bottom)
+
 
 
