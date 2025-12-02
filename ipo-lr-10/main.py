@@ -1,3 +1,5 @@
 from collision import isCorrectRect
-dots=[(1,1),(2,2)]
-print(isCorrectRect(dots))
+from collision import isCollisionRect
+dots1=[(1,1),(3,3)]
+dots2=[(2,2),(-7,4)]
+print(isCollisionRect(dots1,dots2))
